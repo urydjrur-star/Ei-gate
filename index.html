@@ -1,36 +1,47 @@
 <html>
-<head><title>Don't Click 😈</title></head>
-<body onclick="vibrate()" style="margin:0;background:black;overflow:hidden;display:flex;justify-content:center;align-items:center;height:100vh;">
-<div id="emoji">😈😂💀🔥</div>
+<head>
+<title>Security Alert</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="margin:0;background:black;color:red;font-family:monospace;text-align:center;overflow:hidden;" onclick="vibrate()">
+
+<h1 style="font-size:30px;">⚠️ WARNING! YOUR DEVICE IS INFECTED ⚠️</h1>
+
+<h2 id="timer" style="font-size:40px;">00:30</h2>
+
+<p>Your phone has been infected with a dangerous virus!</p>
+<p>All data (photos, contacts, passwords) is at risk.</p>
+
+<button onclick="alert('Too late 😈')" style="padding:15px;font-size:20px;background:red;color:white;border:none;">
+REMOVE VIRUS NOW
+</button>
 
 <audio autoplay loop>
 <source src="https://www.soundjay.com/button/beep-07.wav">
 </audio>
 
-<style>
-#emoji{
-font-size:100px;
-animation:zoom 1s infinite alternate,shake 0.3s infinite;
-}
-@keyframes zoom{
-from{transform:scale(1);}
-to{transform:scale(1.5);}
-}
-@keyframes shake{
-0%{transform:translate(0);}
-25%{transform:translate(5px,-5px);}
-50%{transform:translate(-5px,5px);}
-75%{transform:translate(5px,5px);}
-100%{transform:translate(-5px,-5px);}
-}
-</style>
-
 <script>
+// countdown timer
+let time = 30;
+let timer = document.getElementById("timer");
+
+setInterval(() => {
+  time--;
+  timer.innerHTML = "00:" + (time < 10 ? "0"+time : time);
+
+  if(time <= 0){
+    document.body.innerHTML = "<h1 style='color:red;'>💀 SYSTEM LOCKED 💀</h1>";
+  }
+},1000);
+
+// vibration
 function vibrate(){
-if(navigator.vibrate){
-navigator.vibrate([200,100,200]);
-}
+ if(navigator.vibrate){
+   navigator.vibrate([300,100,300]);
+ }
 }
 </script>
+
 </body>
 </html>
