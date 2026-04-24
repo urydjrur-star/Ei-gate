@@ -1,0 +1,36 @@
+<html>
+<head><title>Don't Click 😈</title></head>
+<body onclick="vibrate()" style="margin:0;background:black;overflow:hidden;display:flex;justify-content:center;align-items:center;height:100vh;">
+<div id="emoji">😈😂💀🔥</div>
+
+<audio autoplay loop>
+<source src="https://www.soundjay.com/button/beep-07.wav">
+</audio>
+
+<style>
+#emoji{
+font-size:100px;
+animation:zoom 1s infinite alternate,shake 0.3s infinite;
+}
+@keyframes zoom{
+from{transform:scale(1);}
+to{transform:scale(1.5);}
+}
+@keyframes shake{
+0%{transform:translate(0);}
+25%{transform:translate(5px,-5px);}
+50%{transform:translate(-5px,5px);}
+75%{transform:translate(5px,5px);}
+100%{transform:translate(-5px,-5px);}
+}
+</style>
+
+<script>
+function vibrate(){
+if(navigator.vibrate){
+navigator.vibrate([200,100,200]);
+}
+}
+</script>
+</body>
+</html>
